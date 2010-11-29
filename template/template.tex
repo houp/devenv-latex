@@ -1,0 +1,114 @@
+
+\documentclass[12pt,a4paper]{article}
+
+% ustawienia marginesu
+\usepackage[left=1.6in,right=.8in,top=1.5in,bottom=1.5in]{geometry}
+
+% polskie reguły dzielenia wyrazów itd
+\usepackage{polski}
+
+% polskie znaki zakodowane w UTF8
+\usepackage[utf8]{inputenc}
+
+% automatyczne generowanie odnośników w plikach PDF
+\usepackage[pdftex,linkbordercolor={0 0.9 1}]{hyperref}
+
+% pakiety matematyczne
+\usepackage{amsthm,amsmath,amsfonts,amssymb,mathrsfs}
+
+% ładne składanie odnośników do stron www
+\usepackage{url}
+
+% rozbudowane możliwości wypunktowań
+\usepackage{enumerate}
+
+% możliwość dodawania plików graficznych
+\usepackage{graphicx} 
+
+%%% definicje twierdzeń itd :)
+\newtheorem{tw}{Twierdzenie}[section]
+\newtheorem{stw}[tw]{Stwierdzenie}
+\newtheorem{fakt}[tw]{Fakt}
+\newtheorem{lemat}[tw]{Lemat}
+
+\theoremstyle{definition}
+\newtheorem{df}[tw]{Definicja}
+\newtheorem{ex}[tw]{Przykład}
+\newtheorem{uw}[tw]{Uwaga}
+\newtheorem{wn}[tw]{Wniosek}
+\newtheorem{zad}{Zadanie}
+
+% oznaczenia zbiorów liczbowych
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+
+
+% wartość bezwzględna, norma, iloczyn skalarny, nośnik, rozpięcie przestrzeni...
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\var}[1]{\operatorname{var}(#1)}
+
+% fajne nagłówki i stopki na stronie
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\textbf{\thepage}}
+\fancyhead[L]{\small\sffamily \nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0.4pt} 
+\renewcommand{\footrulewidth}{0.4pt}
+
+% typowe dane dokumentu
+\title{Szablon}
+\date{\today}
+
+% tu podaj swoje imię i nazwisko!
+\author{Autor}
+
+% zaczynamy dokument
+\begin{document}
+ 
+% pokaż tytuł
+\maketitle
+
+% spis treści
+\tableofcontents
+
+\section{Wstęp do mądrości}
+
+Język \LaTeX jest bardzo fajny. Można w nim po prostu pisać. Ale można też pisać inaczej:
+\[ \sum_{i=0}^\infty \frac{1}{i^2} = ? \]
+Ciekawe jest to, że bardzo łatwo możemy pisać teksty matematyczne. Znane są też wszystkie te dziwne literki - na przykład: $\Upsilon$ albo $\kappa$ albo $\aleph$. A oto popularne oznaczenia zbioru liczb rzeczywistych: $\R$ i wymiernych: $\Q$. 
+
+Jeśli chcemy nagle, że mamy coś ważnego do przekazania, możemy ująć to w twierdzeniu i udowodnić.
+
+\begin{tw}
+Nie wszystko złoto co się świeci. 
+\end{tw}
+
+\begin{proof}
+Załóżmy przeciwnie, że tak nie jest. Czyli, że wszystko co się świeci jest złotem. Ale wtedy każda żarówka byłaby ze złota, co prowadzi do sprzeczności, bo żarówki są tanie. To kończy dowód.
+\end{proof}
+
+\section{Kompilacja plików \LaTeX}
+Jeśli chcemy zbudować z dokumentu \LaTeX\ plik pdf, musimy:
+\begin{enumerate}[a)]
+\item Napisać kod źródłowy i zapisać go w pliku o rozszerzeniu .tex.
+\item Skompilować go poleceniem pdflatex.
+\item Czasem kompilację trzeba wykonać 2 lub nawet 3 razy\footnote{A to dlatego, że \LaTeX\ nie umie cofnąć się do wcześniejszych fragmentów pliku. Więc jeśli fragment kodu niżej zmienia coś co jest wyżej, konieczny jest kolejny przebieg kompilatora. Przykład takiej sytuacji to generacja spisu treści, który ma być na początku dokumentu. Aby \LaTeX\ wiedział co ma być w spisie, musi przeczytać cały dokument, a kiedy już to wie musi uaktualnić numery stron w spisie.}.
+\item Otworzyć wynikowy plik i cieszyć się z pięknego tekstu.
+\end{enumerate}
+
+\section{Historia}
+System \TeX\ został pierwotnie zaprojektowany przez Donalda E. Knutha -- znanego informatyka i matematyka. System jest rozwijany od BARDZO dawna i obecnie rzadko kiedy wprowadza się w nim zmiany. Pan Knuth wydał ten system za darmo na zasadach public domain, ale zastrzegł, że po jego śmierci system ma nie być już rozwijany (przynajmniej pod nazwą \TeX) i ma zostać oznaczony numerem wersji równym $\pi$. Obecnie kolejne wydania otrzymują numery wersji będące kolejnymi przybliżeniami liczby $\pi$. Wersja zainstalowana na sigmie to $3.1415926$. Co ciekawe za znalezienie błędów w systemie \TeX\ wypłacane są niemałe pieniądze, podobnie z resztą jak za znalezienie błędów w książkach autorstwa Knutha. 
+
+System \LaTeX\ to zestaw rozszerzeń do systemu \TeX. Oprócz niego dość popularny jest też system ConTeXt, stanowiący bardziej nowoczesne od \LaTeX\ podejście do rozbudowy \TeX'a. Niezależnie od wyboru systemu rozszerzeń mamy do dyspozycji bogaty zestaw narzędzi, który pozwala tworzyć wspaniałe dokumenty drukowane (listy, książki, artykuły, plakaty) oraz dokumenty elektroniczne (np. slajdy do prezentacji).  
+
+Więcej takich ciekawostek na przykład na stronie: \url{http://www.tug.org/whatis.html}.
+
+Ważna rzeczą jest też wymowa nazwy. Słowo \TeX\ czytamy jako "tech", a \LaTeX\ jak ,,latech'', a nie ,,lateks''.
+
+
+
+
+\end{document}
